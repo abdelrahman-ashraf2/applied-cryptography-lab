@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "applied-cryptography-lab"
+version = "1.0.0"
+description = "Interactive educational demonstrations of Feistel networks, Diffie-Hellman MITM, block cipher image modes, and DSA."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Abdelrahman Ashraf", email = "abdelrahman.a.moustfa@gmail.com" }]
+dependencies = [
+  "Pillow>=10.0",
+  "pycryptodome>=3.20",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+crypto-lab = "crypto_lab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
